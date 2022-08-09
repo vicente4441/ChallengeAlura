@@ -7,35 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        //primer ejercicio
-        console.log("Hola mundo");
-        //Segundo ejercicio
-        let numero1 = 10,numero2 = 15,resultadoS,resultadoM,resultadoD,resultadoR,resultadoRe;
-        resultadoS = numero1 + numero2;
-        resultadoM = numero1 * numero2;
-        resultadoD = numero1 / numero2;
-        resultadoR = numero1 - numero2;
-        resultadoRe = numero1 % numero2;
-        console.log(resultadoS);
-        console.log(resultadoM);
-        console.log(resultadoD);
-        console.log(resultadoR);
-        console.log(resultadoRe);
-        //Cuarto ejercicio
-        let numero = parseInt(prompt("Dame un valor"));
-        if(numero %2 == 0){
-            console.log("Es par");
-        }else{console.log("Es impar")}
-        //quinto ejercicio
-        let numero11 = parseInt(prompt("Dame el valor 1"));
-        let numero22 = parseInt(prompt("Dame el valor 2"));
-        if(numero11 > numero22){
-            console.log(`el numero ${numero11} es el mayor`);
-        }else if(numero22 > numero11){
-            console.log(`el numero ${numero22} es el mayor`);
-        }else{console.log("Son iguales");}
 
-    </script>
+ <script>
+    let contador = 1;
+    let eleccion = "s";
+      //Primer ejercicio
+      document.write("CICLO WHILE <br>");
+      while(contador <= 100){
+        document.write(contador + " ");
+        contador++;
+      }
+      //Segundo ejercicio
+      document.write("<br> CICLO FOR <br>");
+      for(let i = 1; i <= 100;i++){
+        document.write(i + " ");
+      }
+      //Tercer ejercicio
+      document.write("<br> CICLO FOR CON SOLO NUMEROS DIVISIBLES ENTRE 2 Y 3 <br>");
+      for(let i = 1;i<=100;i++){
+         if(i%2 == 0 && i%3 == 0){
+            document.write(i + " ");
+         }
+      }
+      //Cuarto ejercicio
+      document.write("<br> Seleccion de numeros <br>")
+      contador = 0;
+      do{
+         contador = prompt("Dame un numero");
+         document.write(contador);
+         eleccion = prompt("Ingresa s si deseas dejar de ejecutar");
+      }while(eleccion != "s");
+  </script>
 </body>
 </html>
