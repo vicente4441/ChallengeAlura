@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+            <input type="text">
+            <button>Encriptar</button>
+            <button>Desencriptar</button>
+            <div style="border: 1px solid red; height: 400px; width: 50%;" id="textoAMostrar"></div>
+        <script>
+            let texto = document.querySelector("input");
+            function verificar(){
+                let textoCodificado = "";
+                let banderin = false;
+                for(let i = 0; i<texto.value.length; i++){
+                    switch(texto.value.charAt(i)){
+                        case "e": 
+                            if(texto.value.charAt(i) == "e"){
+                                textoCodificado += "enter"
+                                banderin = true;
+                                break;
+                            }
+                            else{textoCodificado += texto.value.charAt(j);
+                            }
+                        break;
+                        case "i": 
+                            if(texto.value.charAt(i) == "i"){
+                                textoCodificado += "imes"
+                                banderin = true;
+                                break;
+                            }
+                            else{textoCodificado += texto.value.charAt(j);
+                            }
+                       
+                        break;
+                        case "a":
+                            if(texto.value.charAt(i) == "a"){
+                                textoCodificado += "ai"
+                                banderin = true;
+                                break;
+                            }
+                            else{textoCodificado += texto.value.charAt(j);
+                            }
+                          
+                        break;
+                        case "o":
+                            if(texto.value.charAt(i) == "o"){
+                                textoCodificado += "ober"
+                                banderin = true;
+                                break;
+                            }
+                            else{textoCodificado += texto.value.charAt(j);
+                            }
+                 
+                        break;
+                        case "u":
+                                if(texto.value.charAt(i) == "u"){
+                                textoCodificado += "ufat"
+                                banderin = true;
+                                break;
+                            }
+                            else{textoCodificado += texto.value.charAt(j);
+                            }
+                        break;
+                    }
+                }
+                if(banderin == true){
+                document.getElementById("textoAMostrar").innerHTML = textoCodificado;
+                }
+                else{
+                    document.getElementById("textoAMostrar").innerHTML = texto.value;}
+            }
+            let boton = document.querySelector("button");
+            boton.onclick = verificar;
+        </script>
+    </main>
+
+</body>
+</html>
