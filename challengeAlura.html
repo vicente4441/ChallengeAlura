@@ -9,12 +9,12 @@
 <body>
     <main>
             <input type="text">
-            <button>Encriptar</button>
-            <button>Desencriptar</button>
+            <button id = "encriptador">Encriptar</button>
+            <button id = "desencriptador">Desencriptar</button>
             <div style="border: 1px solid red; height: 400px; width: 50%;" id="textoAMostrar"></div>
         <script>
             let texto = document.querySelector("input");
-            function verificar(){
+            function encriptado(){
                 let textoCodificado = "";
                 let banderin = false;
                 for(let i = 0; i<texto.value.length; i++){
@@ -23,18 +23,12 @@
                             if(texto.value.charAt(i) == "e"){
                                 textoCodificado += "enter"
                                 banderin = true;
-                                break;
-                            }
-                            else{textoCodificado += texto.value.charAt(j);
                             }
                         break;
                         case "i": 
                             if(texto.value.charAt(i) == "i"){
                                 textoCodificado += "imes"
                                 banderin = true;
-                                break;
-                            }
-                            else{textoCodificado += texto.value.charAt(j);
                             }
                        
                         break;
@@ -42,9 +36,6 @@
                             if(texto.value.charAt(i) == "a"){
                                 textoCodificado += "ai"
                                 banderin = true;
-                                break;
-                            }
-                            else{textoCodificado += texto.value.charAt(j);
                             }
                           
                         break;
@@ -52,9 +43,6 @@
                             if(texto.value.charAt(i) == "o"){
                                 textoCodificado += "ober"
                                 banderin = true;
-                                break;
-                            }
-                            else{textoCodificado += texto.value.charAt(j);
                             }
                  
                         break;
@@ -62,10 +50,9 @@
                                 if(texto.value.charAt(i) == "u"){
                                 textoCodificado += "ufat"
                                 banderin = true;
-                                break;
                             }
-                            else{textoCodificado += texto.value.charAt(j);
-                            }
+                        break;
+                        default: textoCodificado += texto.value.charAt(i);
                         break;
                     }
                 }
@@ -75,8 +62,22 @@
                 else{
                     document.getElementById("textoAMostrar").innerHTML = texto.value;}
             }
-            let boton = document.querySelector("button");
-            boton.onclick = verificar;
+            function desencriptado(){
+                let textoDescodificado = texto.value;
+                  for(let i = 0; i<texto.value.length;i++){
+                  textoDescodificado = textoDescodificado.replace("enter","e");
+                  textoDescodificado = textoDescodificado.replace("imes","i");
+                  textoDescodificado = textoDescodificado.replace("ai","a");
+                  textoDescodificado = textoDescodificado.replace("ober","o");
+                  textoDescodificado = textoDescodificado.replace("ufat","u");
+                  }
+                  console.log(textoDescodificado);
+                
+            }
+            let boton = document.getElementById("encriptador");
+            boton.onclick = encriptado;
+            let boton2 = document.getElementById("desencriptador")
+            boton2.onclick = desencriptado;
         </script>
     </main>
 
