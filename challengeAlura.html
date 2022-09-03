@@ -4,82 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/challengeAlura.css">
     <title>Document</title>
 </head>
 <body>
-    <main>
-            <input type="text">
-            <button id = "encriptador">Encriptar</button>
-            <button id = "desencriptador">Desencriptar</button>
-            <div style="border: 1px solid red; height: 400px; width: 50%;" id="textoAMostrar"></div>
-        <script>
-            let texto = document.querySelector("input");
-            function encriptado(){
-                let textoCodificado = "";
-                let banderin = false;
-                for(let i = 0; i<texto.value.length; i++){
-                    switch(texto.value.charAt(i)){
-                        case "e": 
-                            if(texto.value.charAt(i) == "e"){
-                                textoCodificado += "enter"
-                                banderin = true;
-                            }
-                        break;
-                        case "i": 
-                            if(texto.value.charAt(i) == "i"){
-                                textoCodificado += "imes"
-                                banderin = true;
-                            }
-                       
-                        break;
-                        case "a":
-                            if(texto.value.charAt(i) == "a"){
-                                textoCodificado += "ai"
-                                banderin = true;
-                            }
-                          
-                        break;
-                        case "o":
-                            if(texto.value.charAt(i) == "o"){
-                                textoCodificado += "ober"
-                                banderin = true;
-                            }
-                 
-                        break;
-                        case "u":
-                                if(texto.value.charAt(i) == "u"){
-                                textoCodificado += "ufat"
-                                banderin = true;
-                            }
-                        break;
-                        default: textoCodificado += texto.value.charAt(i);
-                        break;
+        <main>
+            <section class="cajatexto">
+            <input type="text" class="ingresotexto" placeholder="Ingresa el texto aqui">
+            </section>
+            <div class="textoMostrar" ><p id="textoAMostrar" class="texto">No ingresaste ningun mensaje aun...</p> <button class="boton3" id="copiador" onclick="copiar()">Copiar</button></div>
+            <section class="botones">
+            <button id = "encriptador" class="boton1">Encriptar</button>
+            <button id = "desencriptador" class="boton2">Desencriptar</button>
+            </section>
+        </main>    
+            <script>
+                let texto = document.querySelector("input");
+                function encriptado(){
+                    let textoCodificado = "";
+                    let banderin = false;
+                    for(let i = 0; i<texto.value.length; i++){
+                        switch(texto.value.charAt(i)){
+                            case "e": 
+                                    textoCodificado += "enter"
+                                    banderin = true;
+                            break;
+                            case "i":
+                                    textoCodificado += "imes"
+                                    banderin = true;
+                        
+                            break;
+                            case "a":
+                                    textoCodificado += "ai"
+                                    banderin = true;
+                            
+                            break;
+                            case "o":
+                                    textoCodificado += "ober"
+                                    banderin = true;
+                            break;
+                            case "u":
+                                    if(texto.value.charAt(i) == "u"){
+                                    textoCodificado += "ufat"
+                                    banderin = true;
+                                }
+                            break;
+                            default: textoCodificado += texto.value.charAt(i);
+                            break;
+                        }
                     }
+                    if(banderin == true){
+                    document.getElementById("textoAMostrar").innerHTML = textoCodificado;
+                    }
+                    else{
+                        document.getElementById("textoAMostrar").innerHTML = texto.value;}
                 }
-                if(banderin == true){
-                document.getElementById("textoAMostrar").innerHTML = textoCodificado;
+                function desencriptado(){
+                    let textoDescodificado = texto.value;
+                    for(let i = 0; i<texto.value.length/2;i++){
+                    textoDescodificado = textoDescodificado.replace("enter","e");
+                    textoDescodificado = textoDescodificado.replace("imes","i");
+                    textoDescodificado = textoDescodificado.replace("ai","a");
+                    textoDescodificado = textoDescodificado.replace("ober","o");
+                    textoDescodificado = textoDescodificado.replace("ufat","u");
+                    }
+                    document.getElementById("textoAMostrar").innerHTML = textoDescodificado ;
+                    
                 }
-                else{
-                    document.getElementById("textoAMostrar").innerHTML = texto.value;}
-            }
-            function desencriptado(){
-                let textoDescodificado = texto.value;
-                  for(let i = 0; i<texto.value.length;i++){
-                  textoDescodificado = textoDescodificado.replace("enter","e");
-                  textoDescodificado = textoDescodificado.replace("imes","i");
-                  textoDescodificado = textoDescodificado.replace("ai","a");
-                  textoDescodificado = textoDescodificado.replace("ober","o");
-                  textoDescodificado = textoDescodificado.replace("ufat","u");
-                  }
-                  console.log(textoDescodificado);
-                
-            }
-            let boton = document.getElementById("encriptador");
-            boton.onclick = encriptado;
-            let boton2 = document.getElementById("desencriptador")
-            boton2.onclick = desencriptado;
-        </script>
-    </main>
+                function copiar(){
+                    var contenido = document.getElementById('textoAMostrar').innerHTML;
 
+                    navigator.clipboard.writeText(contenido);
+                }
+                let boton = document.getElementById("encriptador");
+                boton.onclick = encriptado;
+                let boton2 = document.getElementById("desencriptador");
+                boton2.onclick = desencriptado;
+                let boton3 = document.getElementById("copiador");
+                boton3.onclick = copiar;
+            </script>
 </body>
 </html>
